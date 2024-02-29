@@ -1,3 +1,6 @@
+//Global
+import React from "react";
+
 //Components
 import { Transfer } from "@/components/Transfer/Transfer";
 import { getDataFromAPI } from "@/services/coinService";
