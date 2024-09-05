@@ -1,27 +1,21 @@
-"use client";
-
-//Global
-import React, { FC, useCallback, useEffect, useState } from "react";
-
-//Components
-import { InputsBlock } from "../InputsBlock/InputsBlock";
-
-//Types
+'use client';
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import { InputsBlock } from './InputsBlock';
 import {
   CoinTypes,
   FetchCoinsType,
   ICoinsFromAPI,
-  ITransferProps,
-} from "@/types/types";
+  ITransferProps
+} from '@/types/types';
 
 const Transfer: FC<ITransferProps> = ({ coins }) => {
   const [coinsArray, setCoinsArray] = useState<ICoinsFromAPI[]>([]);
 
-  const [coinFrom, setCoinFrom] = useState<CoinTypes>("BTC"),
-    [coinTo, setCoinTo] = useState<CoinTypes>("USDT");
+  const [coinFrom, setCoinFrom] = useState<CoinTypes>('BTC'),
+    [coinTo, setCoinTo] = useState<CoinTypes>('USDT');
 
-  const [inputValueFrom, setInputValueFrom] = useState<string>(""),
-    [inputValueTo, setInputValueTo] = useState<string>("");
+  const [inputValueFrom, setInputValueFrom] = useState<string>(''),
+    [inputValueTo, setInputValueTo] = useState<string>('');
 
   const currentCoinFrom = coinsArray.find(coin => coin.symbol === coinFrom),
     currentCoinTo = coinsArray.find(coin => coin.symbol === coinTo);
@@ -30,7 +24,7 @@ const Transfer: FC<ITransferProps> = ({ coins }) => {
     async (setCoinsArray: FetchCoinsType) => {
       if (coins) {
         const newCoins = coins.filter(item =>
-          ["BTC", "ETH", "USDT"].includes(item.symbol)
+          ['BTC', 'ETH', 'USDT'].includes(item.symbol)
         );
 
         setCoinsArray(newCoins);
@@ -79,8 +73,14 @@ const Transfer: FC<ITransferProps> = ({ coins }) => {
 
           <p>
             {condition
-              ? `${inputValueFrom} ${currentCoinFrom.name} = ${inputValueTo} ${currentCoinTo?.name}`
-              : "<Quantity> <Coin> = <Quantity> <Coin>"}
+              ? `${Number(inputValueFrom).toLocaleString('ru-RU', {
+                  maximumFractionDigits: 2
+                })} ${currentCoinFrom.name} = ${Number(
+                  inputValueTo
+                ).toLocaleString('ru-RU', { maximumFractionDigits: 2 })} ${
+                  currentCoinTo?.name
+                }`
+              : '<Quantity> <Coin> = <Quantity> <Coin>'}
           </p>
         </>
       ) : (

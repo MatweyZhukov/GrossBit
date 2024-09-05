@@ -1,15 +1,7 @@
 "use client";
-
-//GLobal
 import React, { useEffect, FC, useCallback, memo, useMemo } from "react";
-
-//Icons
 import { TbArrowsLeftRight } from "react-icons/tb";
-
-//Components
-import { InputDropDown } from "../InputDropDown/InputDropDown";
-
-//Types
+import { InputDropDown } from "./InputDropDown";
 import { CoinTypes, IInputsBlockProps, SetCoinType } from "@/types/types";
 import { SelectChangeEvent } from "@mui/material";
 
@@ -64,14 +56,15 @@ const InputsBlock: FC<IInputsBlockProps> = memo(props => {
   const memoizedInputValueFrom = useMemo(
       () => inputValueFrom,
       [inputValueFrom]
-    ),
-    memoizedInputValueTo = useMemo(() => inputValueTo, [inputValueTo]);
+    );
+    
+  const memoizedInputValueTo = useMemo(() => inputValueTo, [inputValueTo]);
 
   return (
     <>
-      <h1>Transfer App Test Task</h1>
+      <h1>Transfer App</h1>
 
-      <section>
+      <section style={{width: '200px'}}>
         <InputDropDown
           coin={coinFrom}
           otherCoin={coinTo}

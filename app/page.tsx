@@ -1,11 +1,6 @@
-//Global
 import React from "react";
-
-//Components
-import { Transfer } from "@/components/Transfer/Transfer";
+import { Transfer } from "@/components/Transfer";
 import { getDataFromAPI } from "@/services/coinService";
-
-//Styles
 import styles from "@/styles/page.module.css";
 
 export default async function Home() {

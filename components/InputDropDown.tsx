@@ -1,16 +1,10 @@
 "use client";
-
-//GLobal
 import React, { FC, memo } from "react";
-
-//MUI
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Box, Input } from "@mui/material";
-
-//Types
 import { IInputDropDownProps } from "@/types/types";
 
 const InputDropDown: FC<IInputDropDownProps> = memo(props => {
@@ -25,29 +19,23 @@ const InputDropDown: FC<IInputDropDownProps> = memo(props => {
     handleChange,
   } = props && props;
 
-  const inputSX = {
-    width: "250px",
-    fontSize: "20px",
-    padding: "0 15px",
-  };
-
-  const inputPlaceholder = isInputFrom
-    ? "Enter numbers..."
-    : "See convertation...";
-
   return (
     <Box sx={{ display: "flex" }}>
       <Input
-        placeholder={inputPlaceholder}
+        placeholder={isInputFrom ? "Enter numbers..." : "See convertation..."}
         readOnly={!isInputFrom}
         disabled={!isInputFrom}
         type="number"
-        sx={inputSX}
+        sx={{
+          width: "250px",
+          maxWidth: "250px",
+          fontSize: "20px",
+        }}
         value={value}
         onChange={e => setValue(e.target.value)}
       />
 
-      <FormControl sx={{ width: "100px" }}>
+      <FormControl>
         <InputLabel id="demo-simple-select-label">Coin</InputLabel>
 
         <Select

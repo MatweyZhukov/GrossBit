@@ -1,7 +1,33 @@
+@media screen and (max-width: 8000px) {
+  section {
+    flex-direction: column;
+    gap: 25px;
+  }
+  p {
+    font-size: 30px;
+  }
+  h1 {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 825px) {
+  section {
+    flex-direction: column;
+    gap: 10px;
+  }
+  p {
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 25px;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+   -webkit-tap-highlight-color: transparent;
 }
 
 html,
@@ -16,18 +42,9 @@ input::-webkit-inner-spin-button {
 }
 
 section {
-  gap: 0 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-p {
-  font-size: 30px;
-}
-
-h1 {
-  font-size: 50px;
 }
 
 h1,

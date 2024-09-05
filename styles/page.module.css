@@ -1,9 +1,16 @@
+@media screen and (max-width: 825px) {
+  .main {
+    gap: 15px;
+  }
+}
 .main {
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 100px 0;
+  padding: 0 30px;
+  gap: 50px;
   min-height: 100vh;
   background: linear-gradient(to bottom, rgb(52, 152, 219, .5), rgb(46, 204, 113, .5), rgb(231, 76, 60, .5));
 }
